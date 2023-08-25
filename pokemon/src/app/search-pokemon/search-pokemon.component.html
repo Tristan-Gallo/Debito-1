@@ -1,1 +1,10 @@
-<p>search-pokemon works!</p>
+<div>
+    <input [(ngModel)]="searchTerm" placeholder="Search for a Pokemon">
+    <button (click)="searchPokemon()">Search</button>
+  </div>
+  <div *ngIf="searchResult">
+    <h2>{{ searchResult.name }}</h2>
+    <img [src]="searchResult.sprites.front_default" alt="Pokemon Image">
+    <a [routerLink]="['/pokemon', searchResult.id]">Details</a>
+  </div>
+  
