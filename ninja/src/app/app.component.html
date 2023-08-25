@@ -1,0 +1,5 @@
+
+<button (click)="showTurtleLair()">Visualizza la tana delle tartarughe Ninja</button>
+<agm-map [latitude]="mapLat" [longitude]="mapLng" [zoom]="15" *ngIf="showMap">
+  <agm-marker [latitude]="turtleLairLat" [longitude]="turtleLairLng" [iconUrl]="'assets/tombino.png'"></agm-marker>
+</agm-map>
