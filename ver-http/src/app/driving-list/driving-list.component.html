@@ -1,9 +1,8 @@
-
-<div *ngFor="let mezzo of mezzi">
-    <div>
-      <h3>{{ mezzo.nome }}</h3>
-      <p>Tipo: {{ mezzo.tipo }}</p>
-      <p>Anno di produzione: {{ mezzo.annoProduzione }}</p>
-    </div>
+<div class="driving-list">
+  <div *ngFor="let driving of drivingList" class="driving-item">
+    <h3>{{ driving.tipo }}</h3>
+    <p>Tipo: {{ driving.descrizione }}</p>
+    <p *ngIf="driving.available">Disponibile</p>
+    <button (click)="rentDriving(driving)" [disabled]="!driving.available">Noleggia</button>
   </div>
-  
+</div>

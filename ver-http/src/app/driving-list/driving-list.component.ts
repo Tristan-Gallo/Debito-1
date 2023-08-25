@@ -1,8 +1,6 @@
-
-
 import { Component, OnInit } from '@angular/core';
-import { Mezzo } from '.';
-import { DrivingService } from './driving.service';
+import { HttpClient } from '@angular/common/http';
+import { DrivingModel } from '../driving.model';
 
 @Component({
   selector: 'app-driving-list',
@@ -10,22 +8,22 @@ import { DrivingService } from './driving.service';
   styleUrls: ['./driving-list.component.css']
 })
 export class DrivingListComponent implements OnInit {
-  mezzi: Mezzo[] = [];
+  drivingList: DrivingModel[] = [];
 
-  constructor(private drivingService: DrivingService) {}
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.loadMezzi();
+    this.fetchDrivingList();
   }
 
-  loadMezzi(): void {
-    this.drivingService.getMezzi().subscribe(
-      (mezzi: Mezzo[]) => {
-        this.mezzi = mezzi;
-      },
-      error => {
-        console.error('Errore nel recupero dei dati dei mezzi', error);
-      }
-    );
+  fetchDrivingList() {
+    const url = 'https://my-json-server.typicode.com/malizia-g/fine_anno_exp/mezzi';
+    this.http.get<DrivingModel[]>(url).subscribe(data => {
+      this.drivingList = data;
+    });
+  }
+
+  rentDriving(driving: DrivingModel) {
+    console.log('Mezzo noleggiato:', driving);
   }
 }

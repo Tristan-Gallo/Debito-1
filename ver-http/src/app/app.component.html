@@ -1,1 +1,14 @@
-<app-driving-list></app-driving-list>
+<div class="container">
+    <h1>Self Driving Things</h1>
+    <h2>Elenco dei mezzi disponibili</h2>
+    <app-driving-list (rent)="onRent($event)"></app-driving-list>
+    <h2>Mezzo noleggiato</h2>
+    <app-rented [rentedDriving]="rentedDriving"></app-rented>
+    <h2>Storico noleggi</h2>
+    <div class="rent-history">
+      <div *ngFor="let rent of rentHistory" class="rent-item">
+        <p>Veicolo: {{ rent.vehicle }}</p>
+        <p>Numero noleggi: {{ rent.numRentals }}</p>
+      </div>
+    </div>
+  </div>
