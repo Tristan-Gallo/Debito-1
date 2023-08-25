@@ -1,1 +1,8 @@
-<p>item-pokemon works!</p>
+<div *ngIf="pokemonDetails">
+    <h2>{{ pokemonDetails.name }}</h2>
+    <img [src]="pokemonDetails.sprites.front_default" alt="Pokemon Image">
+    <p>Height: {{ pokemonDetails.height }}</p>
+    <p>Weight: {{ pokemonDetails.weight }}</p>
+    <button class="btn btn-primary" (click)="goBack()">Back</button>
+  </div>
+  

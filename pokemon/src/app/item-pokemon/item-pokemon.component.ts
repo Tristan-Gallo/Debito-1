@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router'; // Importa Router
+
 import { PokemonService } from '../pokemon.service';
 
 @Component({
@@ -11,14 +12,22 @@ export class ItemPokemonComponent implements OnInit {
   pokemonId: number | undefined;
   pokemonDetails: any;
 
-  constructor(private route: ActivatedRoute, private pokemonService: PokemonService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router, // Inietta Router
+    private pokemonService: PokemonService
+  ) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.pokemonId = +params['id']; // Converto l'id in un numero
+      this.pokemonId = +params['id'];
       this.pokemonService.getPokemonDetailsById(this.pokemonId).subscribe(data => {
         this.pokemonDetails = data;
       });
     });
+  }
+
+  goBack() {
+    this.router.navigate(['/search']); // Torna alla pagina di ricerca
   }
 }
