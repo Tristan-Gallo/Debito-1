@@ -1,0 +1,9 @@
+<div>
+    <button (click)="getAllCoordinates()">Mostra Tutte le Coordinate</button>
+    
+    <!-- Visualizza tutte le coordinate -->
+    <div *ngFor="let coordinate of coordinates">
+      <p>{{ coordinate.name }} - Lat: {{ coordinate.lat }}, Lng: {{ coordinate.lng }}</p>
+    </div>
+  </div>
+  
