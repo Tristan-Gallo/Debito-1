@@ -33,7 +33,7 @@ def get_all_coordinates():
 
 # Carica i dati dei tuoi Avengers dal file JSON
 with open('avengers_data.json') as f:
-    avengers_data = json.load(f)
+    avengers_data = avengers_data.json.load(f)
 
 @app.route('/capitan-america')
 def capitan_america():

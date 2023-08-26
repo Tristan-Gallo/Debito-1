@@ -1,0 +1,10 @@
+
+<button (click)="showPokemonLairs()">Visualizza Tane Pokémon</button>
+<agm-map [latitude]="mapLat" [longitude]="mapLng" [zoom]="mapZoom">
+  <agm-marker
+    *ngFor="let lair of pokemonLairs"
+    [latitude]="lair.latitude"
+    [longitude]="lair.longitude"
+    [iconUrl]="'link_all\'immagine_della_tana.png'"
+  ></agm-marker>
+</agm-map>
