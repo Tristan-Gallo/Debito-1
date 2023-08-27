@@ -1,0 +1,19 @@
+<div class="search-container">
+    <h2>Search Manga</h2>
+    <input type="text" [(ngModel)]="searchQuery" (keyup.enter)="search()">
+    <button (click)="search()">Search</button>
+  
+    <div *ngIf="searchResults.length > 0" class="results-container">
+      <div *ngFor="let manga of searchResults" class="manga-item">
+        <div class="manga-info">
+          <h3>{{ manga.title }}</h3>
+          <p>{{ manga.synopsis }}</p>
+        </div>
+        <div class="manga-image" *ngIf="manga.image_url">
+          <img [src]="manga.image_url" alt="Manga Cover">
+        </div>
+        <a [routerLink]="['/item-manga', manga.mal_id]">Details</a>
+      </div>
+    </div>
+  </div>
+  
