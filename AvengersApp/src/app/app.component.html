@@ -1,0 +1,9 @@
+<button (click)="getAvenger('capitan-america')">Capitan America</button>
+<button (click)="getAvenger('thor')">Thor</button>
+<button (click)="getAvenger('spiderman')">Spiderman</button>
+<button (click)="getAvenger('iron-man')">Iron Man</button>
+<div *ngIf="selectedAvenger">
+  <h2>{{ selectedAvenger.name }}</h2>
+  <p>Latitudine: {{ selectedAvenger.latitude }}</p>
+  <p>Longitudine: {{ selectedAvenger.longitude }}</p>
+</div>
