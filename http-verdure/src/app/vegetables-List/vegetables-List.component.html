@@ -1,0 +1,8 @@
+<div *ngFor="let vegetable of vegetables" class="vegetable-card">
+    <h3>{{ vegetable.nome }}</h3>
+    <p>{{ vegetable.descrizione }}</p>
+    <p>Prezzo: {{ vegetable.prezzo }}</p>
+    <input type="number" [(ngModel)]="vegetable.quantity" min="1">
+    <button (click)="addToCart(vegetable)">Aggiungi al carrello</button>
+  </div>
+  
